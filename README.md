@@ -18,12 +18,13 @@ Execute `sudo ./buildValidity.sh` to setup a Docker image that does the followin
 * Setup all build and runtime dependencies for Validity
 * Compile the Validity source
 * Create a final image tagged as ubuntu/validity:latest, with only the files necessary to launch Validity.
+* Note - compilation will take several hours on a Raspberry Pi.
 
 You can execute a `docker system prune` after building to free up space from the intermediate images of the build if desired.
 
 ### Run the image
 
-Execute `sudo ./runValidity.sh` to launch a container with the ubuntu/validity image using x11docker with the data folder in the same directory shared as the home folder fro the container.  
+Execute `sudo ./runValidity.sh` to launch a container with the ubuntu/validity image using x11docker with the data folder in the same directory shared as the home folder for the container.  
 
 The first time it is launched the Validity application will prompt for the data folder.  Choosing the default will create a hidden .phore folder inside the shared data folder, and will be used the next time the Validity application is laucned.  
 
