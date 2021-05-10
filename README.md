@@ -27,7 +27,7 @@ You can execute a `docker system prune` after building to free up space from the
 
 Execute `sudo ./runValidity.sh` to launch a container with the ubuntu/validity image using x11docker with the data folder in the same directory shared as the home folder for the container.  
 
-The first time it is launched the Validity application will prompt for the data folder.  Choosing the default will create a hidden .phore folder inside the shared data folder, and will be used the next time the Validity application is laucned.  
+The first time it is launched the Validity application will prompt for the data folder.  Choosing the default will create a hidden .Validity folder inside the shared data folder, and will be used the next time the Validity application is laucned.  
 
 After syncing the blockchain, exit Validity and the x11docker window will close.  If you have an existing wallet.dat file, you can replace the data/.Validity/wallet.dat file with yours.  Remember to keep your wallet.dat file safe!
 
