@@ -1,5 +1,5 @@
 # ValidityDocker
-Create a docker container that can be used to build and run the Validity (https://validitytech.com/) client.  This is intended to allow an easy way to run the wallet on a Raspberry Pi.
+Create a docker container that can be used to build and run the Validity (https://validitytech.com/) client.  This is intended to allow an easy way to run the wallet on a Raspberry Pi (recommended Raspberry Pi 4 8GB).
 
 ![image](https://user-images.githubusercontent.com/6404377/117683255-e244f680-b181-11eb-97a8-bbd66c0acc58.png)
 
