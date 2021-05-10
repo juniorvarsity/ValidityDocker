@@ -1,1 +1,1 @@
-x11docker -d --clipboard --home=$(pwd)/data ubuntu/validity:latest
+x11docker -d --home=$(pwd)/data ubuntu/validity:latest
