@@ -13,23 +13,23 @@ Create a docker container that can be used to build and run the Validity (https:
 
 ### Build the image
 
-Execute `./buildValidity.sh` to setup a Docker image that does the following:
+Execute `sudo ./buildValidity.sh` to setup a Docker image that does the following:
 * Fetch and extract the latest tarball source file from the Validity GitHub
 * Setup all build and runtime dependencies for Validity
 * Compile the Validity source
 * Create a final image tagged as ubuntu/validity:latest, with only the files necessary to launch Validity.
 
-You can execute a docker system prune after building to free up space from the intermediate images from the build if desired.
+You can execute a `docker system prune` after building to free up space from the intermediate images of the build if desired.
 
 ### Run the image
 
-Execute `./runValidity.sh` to launch a container with the ubuntu/validity image using x11docker with the data folder in the same directory shared as the home folder fro the container.  
+Execute `sudo ./runValidity.sh` to launch a container with the ubuntu/validity image using x11docker with the data folder in the same directory shared as the home folder fro the container.  
 
 The first time it is launched the Validity application will prompt for the data folder.  Choosing the default will create a hidden .phore folder inside the shared data folder, and will be used the next time the Validity application is laucned.  
 
 After syncing the blockchain, exit Validity and the x11docker window will close.  If you have an existing wallet.dat file, you can replace the data/wallet.dat file with yours.  Remember to keep your wallet.dat file safe!
 
-#### Notes
+### Notes
 
 There are some visual odditities present when using x11docker.  There might be some other settings to play with to help with these, but it is usable as is.
 
