@@ -8,6 +8,7 @@ Create a docker container that can be used to build and run the Validity (https:
 * 64-bit OS installed on the Pi (currenlty using Ubuntu 21.04).  Recommended to run off an external USB hard drive and not a SD card.
 * Docker installed (https://docs.docker.com/engine/install/).  Note - Docker is included in Ubuntu 21.04.
 * x11docker installed (https://github.com/mviereck/x11docker#shortest-way-for-first-installation).
+* xclip to copy/paste into/out of the container: `sudo apg-get install xclip`
 
 ## Usage
 
@@ -36,4 +37,4 @@ There are some visual odditities present when using x11docker.  There might be s
 
 * The title bar is not visibile in the application, meaning the 'X' buttons to close the application or any dialogs are not available.  To close dialogs, the Cancel button or the Esc key can be used.
 * When hovering over the connections icon, the tooltip shows the number of connections as "active connections to Bitcoin network" and not "active connections to Validity network" like the Windows client does.
-* x11docker has other options that might be useful, such as --clipboard to copy/paste into the Validity window.  Requires xclip: `sudo apg-get install xclip`, and adding --clipboard to the runValidity.sh script.
+* The runValidity.sh script uses two options for x11docker: `-d` to indicate the image contains a desktop OS, and `--clipboard` to allow copy/paste into and out of the container and host.
