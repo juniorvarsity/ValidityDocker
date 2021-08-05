@@ -1,4 +1,4 @@
-FROM ubuntu:bionic AS BaseOS 
+FROM ubuntu:bionic AS baseos 
 
 # install runtime libraries (Boost, QT5, event, ssl)
 RUN apt-get update && apt-get install -y \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 
 
 # Stage to build Validity from source
-FROM BaseOS AS ValidityBuild
+FROM baseos AS validitybuild
 
 RUN mkdir /validity
 WORKDIR /validity/validitylatest
@@ -64,9 +64,9 @@ RUN make
 RUN make install
 
 # final stage, copy Validity runtime files and set to launch when running the image
-FROM BaseOS AS ValidityRuntime
+FROM baseos AS validityruntime
 
-COPY --from=ValidityBuild /usr/local/bin/validity-* /usr/local/bin/
+COPY --from=validitybuild /usr/local/bin/validity-* /usr/local/bin/
 CMD ["/usr/local/bin/validity-qt"]
 
 
