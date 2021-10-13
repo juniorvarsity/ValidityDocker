@@ -38,3 +38,16 @@ There are some visual odditities present when using x11docker.  There might be s
 * The title bar is not visibile in the application, meaning the 'X' buttons to close the application or any dialogs are not available.  To close dialogs, the Cancel button or the Esc key can be used.
 * When hovering over the connections icon, the tooltip shows the number of connections as "active connections to Bitcoin network" and not "active connections to Validity network" like the Windows client does.
 * The runValidity.sh script uses two options for x11docker: `-d` to indicate the image contains a desktop OS, and `--clipboard` to allow copy/paste into and out of the container and host.
+
+### Advanced build
+An alternative to building directly on the Raspberry Pi is to build on Windows or Mac using Docker Desktop and the buildx command (https://docs.docker.com/desktop/multi-arch/) to create an arm64 image, then load the image onto the Pi.
+
+To build arm64: `docker buildx build --platform linux/arm64 -t ubuntu/validity .`
+
+To load the image onto the Pi, there are a couple options:
+* Push the image to a personal docker repository , then pull it to the Pi and tag it as ubuntu/validity:latest
+* Docker save the image to a tar file, and docker load the tar file on the Pi
+
+
+
+
