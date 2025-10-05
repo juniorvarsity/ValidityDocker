@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
 # Stage to build Validity from source
 FROM baseos AS validitybuild
 
-RUN mkdir /validity
 WORKDIR /validity/validitylatest
 
 RUN apt-get update && apt-get install -y \
@@ -46,12 +45,11 @@ RUN apt-get update && apt-get install -y \
 ENV BDB_PREFIX="$BITCOIN_ROOT/build"
 RUN mkdir -p "$BDB_PREFIX"
 
-RUN wget 'http://download.oracle.com/berkeley-db/db-6.2.32.tar.gz'
-RUN echo 'a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb  db-6.2.32.tar.gz' | sha256sum -c
-RUN tar -xzvf db-6.2.32.tar.gz
-RUN rm -rf db-6.2.32.tar.gz
+RUN wget https://github.com/RadiumCore/BDB6.2.38/releases/download/6.2.38/db-6.2.38.NC.tar.gz
 
-WORKDIR db-6.2.32/build_unix/
+RUN tar -xzvf db-6.2.38.NC.tar.gz
+
+WORKDIR db-6.2.38.NC/build_unix/
 RUN ../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
 RUN make install
 
